@@ -5,7 +5,9 @@ const Colors = (props) => {
     ? "#FF577F"
     : props === "--grey-1"
     ? "#868E96"
-    : props === "--primary-negative" && "#59323F";
+    : props === "--primary-negative"
+    ? "#59323F"
+    : props === "--grey-3" && "#212529";
 };
 
 export const StyledButton = styled.button`
