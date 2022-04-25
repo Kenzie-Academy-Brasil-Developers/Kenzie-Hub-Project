@@ -1,14 +1,15 @@
 import { BoxNewAccount, Container, Content } from "./styles";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
-import { useHistory } from "react-router-dom";
+import { useHistory, Redirect } from "react-router-dom";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { BoxDescription } from "../Login/styles";
 import api from "../../services/api";
+import { toast } from "react-toastify";
 
-const Login = () => {
+const Login = ({ authentication, setAuthentication }) => {
   const history = useHistory();
 
   const schema = yup.object().shape({
@@ -29,8 +30,21 @@ const Login = () => {
   } = useForm({ resolver: yupResolver(schema) });
 
   const formData = (data) => {
-    api.post("/sessions, data");
+    api
+      .post("/sessions", data)
+      .then((resp) => {
+        const { token, user } = resp.data;
+        localStorage.setItem("@Hub:token", JSON.stringify(token));
+        localStorage.setItem("@Hub:user", JSON.stringify(user));
+        setAuthentication(true);
+        return history.push("/home");
+      })
+      .catch((err) => toast.error("email or password invalid"));
   };
+
+  if (authentication) {
+    return <Redirect to="/home" />;
+  }
 
   return (
     <Container>

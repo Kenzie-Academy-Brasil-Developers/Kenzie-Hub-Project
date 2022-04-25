@@ -5,7 +5,7 @@ import {
   Container,
   Content,
 } from "./styles";
-import { useHistory } from "react-router-dom";
+import { useHistory, Redirect } from "react-router-dom";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import * as yup from "yup";
@@ -14,7 +14,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import api from "../../services/api";
 import { toast } from "react-toastify";
 
-const Register = () => {
+const Register = ({ authentication }) => {
   const history = useHistory();
 
   const schema = yup.object().shape({
@@ -53,6 +53,10 @@ const Register = () => {
       })
       .catch((err) => toast.error("Error! email already registered"));
   };
+
+  if (authentication) {
+    return <Redirect to="/home" />;
+  }
 
   return (
     <Container>
