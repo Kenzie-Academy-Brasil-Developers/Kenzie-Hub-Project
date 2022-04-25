@@ -1,27 +1,69 @@
-import { Container, Content } from "./styles";
+import { BoxNewAccount, Container, Content } from "./styles";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import { useHistory } from "react-router-dom";
+import * as yup from "yup";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { BoxDescription } from "../Login/styles";
+import api from "../../services/api";
 
 const Login = () => {
   const history = useHistory();
+
+  const schema = yup.object().shape({
+    email: yup
+      .string()
+      .required("Required field!")
+      .email("Email is not valid!"),
+    password: yup
+      .string()
+      .required("Required field!")
+      .min(6, "Minimum 6 characters"),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(schema) });
+
+  const formData = (data) => {
+    api.post("/sessions, data");
+  };
 
   return (
     <Container>
       <h1>Kenzie Hub</h1>
       <Content>
         <h2>Login</h2>
-        <form>
-          <label>Email</label>
-          <Input placeholder="Type your email" />
+        <form onSubmit={handleSubmit(formData)}>
+          <BoxDescription>
+            <label>Email:</label>
+            {!!errors.email && <span>{errors.email.message}</span>}
+          </BoxDescription>
+          <Input
+            name="email"
+            register={register}
+            placeholder="Type your email"
+          />
 
-          <label>Password</label>
-          <Input type="password" placeholder="Type your password" />
+          <BoxDescription>
+            <label>Password:</label>
+            {!!errors.password && <span>{errors.password.message}</span>}
+          </BoxDescription>
+          <Input
+            name="password"
+            register={register}
+            type="password"
+            placeholder="Type your password"
+          />
           <Button type="submit" colorSchema={"--primary"}>
             Login
           </Button>
         </form>
-        <div>
+
+        <BoxNewAccount>
           <span>Don't have an account yet?</span>
 
           <Button
@@ -30,7 +72,7 @@ const Login = () => {
           >
             Register
           </Button>
-        </div>
+        </BoxNewAccount>
       </Content>
     </Container>
   );

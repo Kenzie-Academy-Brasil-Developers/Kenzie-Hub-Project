@@ -19,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
      --grey-0: #F8F9FA;
      --sucess: #3FE864;
      --negative: #E83F5B;
+     --error: #FF0000;
  }
 
  body{

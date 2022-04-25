@@ -65,6 +65,24 @@ export const BoxSelect = styled.div`
   }
 `;
 
+export const BoxDescription = styled.div`
+  width: 250px;
+  text-align: start;
+  label {
+    text-align: start;
+    padding-bottom: 10px;
+    color: var(--grey-0);
+    font-size: 10px;
+  }
+  span {
+    padding-left: 5px;
+    color: var(--grey-0);
+    font-size: 10px;
+    text-decoration: underline;
+    text-decoration-color: var(--error);
+  }
+`;
+
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
@@ -89,13 +107,6 @@ export const Content = styled.div`
     text-align: start;
     align-items: center;
     text-align: start;
-  }
-  label {
-    text-align: start;
-    width: 250px;
-    padding-bottom: 10px;
-    color: var(--grey-0);
-    font-size: 10px;
   }
   input {
     margin-bottom: 10px;

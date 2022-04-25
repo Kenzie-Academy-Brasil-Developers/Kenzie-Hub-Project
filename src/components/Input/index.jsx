@@ -1,7 +1,7 @@
-const Input = ({ ...rest }) => {
+const Input = ({ register, name, ...rest }) => {
   return (
     <>
-      <input {...rest} />
+      <input type="text" {...register(name)} {...rest} />
     </>
   );
 };

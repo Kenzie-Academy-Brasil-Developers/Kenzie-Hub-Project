@@ -19,6 +19,34 @@ export const Container = styled.div`
   }
 `;
 
+export const BoxDescription = styled.div`
+  width: 250px;
+
+  label {
+    text-align: start;
+    padding-bottom: 10px;
+    color: var(--grey-0);
+    font-size: 10px;
+  }
+  span {
+    padding-left: 5px;
+    color: var(--grey-0);
+    font-size: 10px;
+    text-decoration: underline;
+    text-decoration-color: var(--error);
+  }
+`;
+
+export const BoxNewAccount = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  span {
+    color: var(--grey-1);
+    font-size: 11px;
+  }
+`;
+
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
@@ -66,15 +94,6 @@ export const Content = styled.div`
   }
   button {
     margin-top: 15px;
-  }
-  div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    span {
-      color: var(--grey-1);
-      font-size: 11px;
-    }
   }
 
   @media (min-width: 1440px) {
