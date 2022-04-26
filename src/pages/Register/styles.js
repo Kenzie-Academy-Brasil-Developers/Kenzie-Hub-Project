@@ -56,6 +56,9 @@ export const BoxSelect = styled.div`
     font-size: 12px;
     color: var(--grey-1);
     padding-left: 8px;
+    :hover {
+      border: 1px solid var(--grey-0);
+    }
   }
 
   @media (min-width: 1440px) {
@@ -80,6 +83,10 @@ export const BoxDescription = styled.div`
     font-size: 10px;
     text-decoration: underline;
     text-decoration-color: var(--error);
+  }
+
+  @media (min-width: 1440px) {
+    width: 269px;
   }
 `;
 

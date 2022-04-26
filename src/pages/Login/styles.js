@@ -35,6 +35,10 @@ export const BoxDescription = styled.div`
     text-decoration: underline;
     text-decoration-color: var(--error);
   }
+
+  @media (min-width: 1440px) {
+    width: 269px;
+  }
 `;
 
 export const BoxNewAccount = styled.div`

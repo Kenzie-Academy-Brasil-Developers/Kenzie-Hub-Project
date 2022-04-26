@@ -22,11 +22,15 @@ export const Modal = styled.div`
   top: 24%;
   margin: 0% auto;
   padding: 0px 20px 13px 20px;
-  max-width: 10ppx;
   width: 295px;
   height: 255px;
   background-color: var(--grey-3);
   border-radius: 4px;
+
+  @media (min-width: 1440px) {
+    width: 390px;
+    height: 270px;
+  }
 `;
 
 export const ContentModal = styled.div`
@@ -57,6 +61,14 @@ export const BoxDescription = styled.div`
     background-color: var(--transparent);
     color: var(--grey-1);
   }
+
+  @media (min-width: 1440px) {
+    width: 390px;
+    height: 45px;
+    h2 {
+      font-size: 14px;
+    }
+  }
 `;
 export const BoxForm = styled.div`
   input {
@@ -80,6 +92,23 @@ export const BoxForm = styled.div`
   button {
     margin-top: 25px;
   }
+
+  @media (min-width: 1440px) {
+    form {
+      margin-top: 5px;
+    }
+    input {
+      width: 275px;
+      height: 37px;
+      ::placeholder {
+        font-size: 11px;
+      }
+    }
+
+    button {
+      width: 275px;
+    }
+  }
 `;
 
 export const BoxLabel = styled.div`
@@ -97,6 +126,15 @@ export const BoxLabel = styled.div`
     font-size: 10px;
     text-decoration: underline;
     text-decoration-color: var(--error);
+  }
+
+  @media (min-width: 1440px) {
+    label {
+      font-size: 12px;
+    }
+    span {
+      font-size: 12px;
+    }
   }
 `;
 
@@ -118,6 +156,17 @@ export const BoxSelect = styled.div`
       border: 1px solid var(--grey-0);
     }
   }
+
+  @media (min-width: 1440px) {
+    select {
+      width: 275px;
+      height: 37px;
+      font-size: 12px;
+      option {
+        font-size: 15px;
+      }
+    }
+  }
 `;
 
 export const BoxButtons = styled.div`
@@ -134,6 +183,20 @@ export const BoxButtons = styled.div`
     margin-left: 12px;
     button {
       width: 65px;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    width: 275px;
+    button {
+      width: 182px;
+      margin-right: 0px;
+    }
+    div {
+      margin-left: 25px;
+      button {
+        width: 65px;
+      }
     }
   }
 `;

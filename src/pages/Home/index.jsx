@@ -63,7 +63,7 @@ const Home = ({ authentication }) => {
 
       <ContainerUser>
         <BoxUser>
-          <h1>Welcome, {user.name}</h1>
+          <h2>Welcome, {user.name}</h2>
           <p>{user.course_module}</p>
         </BoxUser>
       </ContainerUser>
